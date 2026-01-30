@@ -67,7 +67,7 @@ NODE_PORT=${INPUT_PORT:-$DEFAULT_PORT}
 echo ""
 echo -e "${BLUE}[3/4] Настройка Remnawave Node...${NC}"
 
-INSTALL_DIR="/opt/remnawave-node"
+INSTALL_DIR="/opt/remnanode"
 
 # Создаем папку
 mkdir -p "$INSTALL_DIR"
@@ -77,7 +77,7 @@ cd "$INSTALL_DIR"
 cat <<EOF > docker-compose.yml
 services:
   remnawave:
-    container_name: remnawave-node
+    container_name: remnanode
     image: ghcr.io/remnawave/node:latest
     restart: always
     network_mode: host
