@@ -76,11 +76,14 @@ install_node() {
 
     cat <<EOF > docker-compose.yml
 services:
-  remnawave:
+  remnanode:
     container_name: remnanode
-    image: ghcr.io/remnawave/node:latest
-    restart: always
+    hostname: remnanode
+    image: remnawave/node:latest
     network_mode: host
+    restart: always
+    cap_add:
+      - NET_ADMIN
     ulimits:
       nofile:
         soft: 1048576
